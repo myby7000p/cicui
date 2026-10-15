@@ -1,0 +1,40 @@
+{
+  "name": "lexforge",
+  "version": "0.1.0",
+  "description": "LexForge（辞萃）desktop client — Electron + Vue 3 + TypeScript",
+  "main": "./out/main/index.js",
+  "author": "LexForge",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "dev": "electron-vite dev",
+    "start": "electron-vite preview",
+    "build": "electron-vite build",
+    "typecheck:node": "tsc --noEmit -p tsconfig.node.json --composite false",
+    "typecheck:web": "vue-tsc --noEmit -p tsconfig.web.json --composite false",
+    "typecheck": "npm run typecheck:node && npm run typecheck:web",
+    "dist:win": "npm run build && set \"ELECTRON_BUILDER_BINARIES_MIRROR=https://npmmirror.com/mirrors/electron-builder-binaries/\" && electron-builder --win",
+    "dist:mac": "npm run build && ELECTRON_BUILDER_BINARIES_MIRROR=https://npmmirror.com/mirrors/electron-builder-binaries/ electron-builder --mac",
+    "postinstall": "node scripts/ensure-electron.mjs && electron-builder install-app-deps",
+    "prepare": "skills-npm"
+  },
+  "devDependencies": {
+    "@antfu/skills": "^0.1.0",
+    "@types/node": "^24.19.0",
+    "@vitejs/plugin-vue": "^6.0.9",
+    "axios": "^1.20.0",
+    "dompurify": "^3.4.16",
+    "electron": "^44.4.5",
+    "electron-builder": "^26.15.3",
+    "electron-vite": "^5.0.0",
+    "marked": "^18.0.14",
+    "pinia": "^4.0.3",
+    "skills-npm": "^4.0.0",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.6",
+    "vue": "^3.5.43",
+    "vue-i18n": "^11.4.12",
+    "vue-router": "^5.4.0",
+    "vue-tsc": "^3.3.11"
+  }
+}

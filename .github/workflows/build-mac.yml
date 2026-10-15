@@ -1,0 +1,25 @@
+on:
+  workflow_dispatch:
+  push:
+    tags: ['v*']
+
+jobs:
+  mac:
+    if: true
+    runs-on: macos-14            # 必须是 mac，且这一步不能省
+    env:
+      CSC_IDENTITY_AUTO_DISCOVERY: 'false'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+      - run: npx electron-vite build
+      - run: npx electron-builder --mac --publish never   # ← 必须带 --mac
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lexforge-mac
+          path: |
+            release/*-mac-*.dmg
+            release/*-mac-*.zip
+          if-no-files-found: error

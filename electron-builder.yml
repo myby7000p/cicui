@@ -1,0 +1,66 @@
+appId: com.lexforge.desktop
+productName: LexForge
+copyright: Copyright © 2026 LexForge
+
+directories:
+  buildResources: build
+  output: release
+
+# Vite already bundles everything, so the package carries only build output
+# plus resources/ that the main process loads at runtime (`?asset` paths).
+files:
+  - out/**
+  - resources/**
+  - package.json
+  - '!**/*.map'
+
+npmRebuild: false
+asar: true
+
+win:
+  target:
+    - nsis
+    - portable
+  icon: resources/icon.png
+  # Installers run per-user; no UAC elevation prompt.
+  requestedExecutionLevel: asInvoker
+
+nsis:
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  runAfterFinish: true
+  deleteAppDataOnUninstall: false
+  shortcutName: LexForge
+  artifactName: ${productName}-${version}-win-${arch}-setup.${ext}
+
+portable:
+  artifactName: ${productName}-${version}-win-${arch}-portable.${ext}
+
+mac:
+  target:
+    - target: dmg
+      arch:
+        - arm64
+        - x64
+    - target: zip
+      arch:
+        - arm64
+        - x64
+  icon: resources/icon.png
+  category: public.app-category.productivity
+  hardenedRuntime: true
+  gatekeeperAssess: false
+  entitlements: build/entitlements.mac.plist
+  entitlementsInherit: build/entitlements.mac.plist
+  extendInfo:
+    NSMicrophoneUsageDescription: LexForge 需要访问麦克风以支持语音输入。
+    NSCalendarsUsageDescription: LexForge 需要访问日历来安排阅读与复习提醒。
+    NSRemindersUsageDescription: LexForge 需要访问提醒事项来创建学习计划提醒。
+  artifactName: ${productName}-${version}-mac-${arch}.${ext}
+
+dmg:
+  artifactName: ${productName}-${version}-mac-${arch}-dmg.${ext}
+  sign: false

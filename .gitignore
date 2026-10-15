@@ -1,0 +1,64 @@
+# MacOS
+.DS_Store
+
+# IDE and Editors
+.vscode/*
+!.vscode/extensions.json
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Environments
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# local env files
+.env.local
+.env.*.local
+*.local
+
+# ******************* Frontend Specific ****************************************
+node_modules
+/dist
+dist
+dist-ssr
+/build
+dist-it-ticket-verify
+dist-verify-rt
+.scratch
+.verify-trash/
+.parcel-cache
+
+# Log files
+logs
+*.log
+**/*.log
+lerna-debug.log*
+selenium-debug.log*
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# for Typescript project
+*.js.map
+*.d.ts
+tsconfig.node.tsbuildinfo
+*.zip
+
+#electron
+out
+release
+
+# skill
+.agents
+.qoder
+*lock.json

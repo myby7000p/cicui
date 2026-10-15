@@ -1,0 +1,132 @@
+:root {
+  color-scheme: light;
+  --lf-bg: #f6f7f9;
+  --lf-surface: #ffffff;
+  --lf-surface-2: #f0f2f6;
+  --lf-surface-3: #e4e7ee;
+  /* Recessed well for the login folder tabs: the band must sit clearly below the panel colour in
+   * BOTH themes or the selected tab stops reading as cut out of the band (bwgzt login.vue uses
+   * #eee on #fff for exactly this). */
+  --lf-sunk: #e4e7ee;
+  --lf-sidebar: #ffffff;
+  --lf-border: #e4e7ee;
+  --lf-border-strong: #d3d8e2;
+  --lf-fg: #1b1f27;
+  --lf-muted: #5b6270;
+  --lf-faint: #8a90a0;
+  --lf-accent: #4f5ef7;
+  --lf-accent-soft: #eef0ff;
+  --lf-badge: linear-gradient(135deg, #4f5ef7, #7a5cf7);
+  --lf-cover: linear-gradient(135deg, #c9d3ff, #7a5cf7);
+  --lf-danger: #e5484d;
+  --lf-success: #16a085;
+  --lf-warning: #b26a00;
+  --lf-warning-soft: #fff4e0;
+  --lf-shadow-sm: 0 1px 2px rgba(20, 25, 50, 0.06);
+  --lf-shadow: 0 8px 28px rgba(20, 25, 50, 0.1);
+  --lf-shadow-lg: 0 14px 40px rgba(20, 25, 50, 0.18);
+  --lf-r-sm: 9px;
+  --lf-r-md: 12px;
+  --lf-r-lg: 16px;
+  --lf-r-pill: 999px;
+}
+
+html.dark {
+  color-scheme: dark;
+  --lf-bg: #0f1217;
+  --lf-surface: #181c24;
+  --lf-surface-2: #20242e;
+  --lf-surface-3: #2a2f3a;
+  --lf-sunk: #0b0e13;
+  --lf-sidebar: #141820;
+  --lf-border: #2a2f3a;
+  --lf-border-strong: #3a4150;
+  --lf-fg: #e8eaf0;
+  --lf-muted: #aab0c0;
+  --lf-faint: #6f7685;
+  --lf-accent: #7b88ff;
+  --lf-accent-soft: #232a4d;
+  --lf-badge: linear-gradient(135deg, #6470ff, #8f6cff);
+  --lf-cover: linear-gradient(135deg, #4a5aa8, #7a5cf7);
+  --lf-danger: #ff6369;
+  --lf-success: #2fd3ae;
+  --lf-warning: #e0a55f;
+  --lf-warning-soft: #2c2417;
+  --lf-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --lf-shadow: 0 8px 28px rgba(0, 0, 0, 0.45);
+  --lf-shadow-lg: 0 16px 44px rgba(0, 0, 0, 0.6);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  background: var(--lf-bg);
+  color: var(--lf-fg);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC',
+    system-ui, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  user-select: none;
+  overflow: hidden;
+}
+
+textarea,
+input,
+.markdown-body {
+  user-select: text;
+}
+
+button {
+  font-family: inherit;
+}
+
+svg {
+  display: block;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--lf-border-strong) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--lf-border-strong);
+  border: 3px solid transparent;
+  border-radius: var(--lf-r-pill);
+  background-clip: content-box;
+}
+
+.muted {
+  color: var(--lf-faint);
+}
+
+.card {
+  background: var(--lf-surface);
+  border: 1px solid var(--lf-border);
+  border-radius: var(--lf-r-lg);
+  box-shadow: var(--lf-shadow);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
